@@ -1,0 +1,1 @@
+web: gunicorn frate.wsgi --log-file -
