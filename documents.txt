@@ -20,3 +20,9 @@ https://devcenter.heroku.com/articles/getting-started-with-python#set-up
 Database:
 	pip install psycopg2
 	pip install dj_database_url
+
+Pgadmin 4:
+	https://www.pgadmin.org/download/
+Django superuser:
+	username: admin
+	password: frate2020
