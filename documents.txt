@@ -26,3 +26,9 @@ Pgadmin 4:
 Django superuser:
 	username: admin
 	password: frate2020
+Heroku superuser:
+	username: admin
+	password: frate2020
+
+Storage:
+	pip install django-storages
