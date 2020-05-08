@@ -12,7 +12,22 @@ class FrateUsersView(CreateAPIView):
 
     def create(self, request):
     	print("data: ", request.data)
+    	email = request.data['Email']
     	username = request.data['Username']
     	password = request.data['Password']
+
+
+    	from users.models import FrateUser
+    	m = FrateUser.objects.create(
+    		Email = email,
+    		Username = username,
+    		Password = password
+    		)
+    	m.save()
+
+    	from rest_framework.response import Response
+
+    	return Response({Status: 1})
+
 
    
