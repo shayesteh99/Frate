@@ -30,7 +30,15 @@ class FrateUsersView(CreateAPIView):
     	return Response(data = {'Status': 1})
 
     def get(self, request):
-        fusers = [u for u in User.objects.all()]
+        fusers = []
+        for u in User.objects.all():
+            var a = {}
+            a['Username'] = u.Username
+            a['Password'] = u.Password
+            a['Email'] = u.email
+            fusers.append(a)
+
+        # fusers = [u for u in User.objects.all()]
         from rest_framework.response import Response
         return Response(fusers)
 
