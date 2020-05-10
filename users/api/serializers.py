@@ -4,4 +4,4 @@ from users.models import FrateUser
 class FUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = FrateUser
-        fields = ['id']
+        fields = ['id', 'Username', 'Password', 'Email']
