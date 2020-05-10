@@ -37,7 +37,7 @@ class FrateUsersView(ListAPIView):
         #     a['Password'] = u.Password
         #     a['Email'] = u.email
         #     fusers.append(a)
-        serializer = FUserSerializer(FrateUser.objects.get(1))
+        serializer = FUserSerializer(FrateUser.objects.get())
         # fusers = [u for u in ]
         from rest_framework.response import Response
         return Response(serializer.data)
