@@ -30,6 +30,6 @@ class FrateUsersView(CreateAPIView):
     	return Response(data = {'Status': 1})
 
     def get(seld, request):
-        pass
+        return Response()
 
    
