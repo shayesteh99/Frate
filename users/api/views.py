@@ -1,11 +1,11 @@
 from django.contrib.auth.models import User
-from rest_framework.generics import CreateAPIView
+from rest_framework.generics import ListCreateAPIView
 from rest_framework.permissions import AllowAny
 
 from users.api.serializers import FUserSerializer
 from users.models import FrateUser
 
-class FrateUsersView(ListAPIView):
+class FrateUsersView(ListCreateAPIView):
     queryset = FrateUser.objects.all()
     serializer_class = FUserSerializer
     permission_classes = [AllowAny]
