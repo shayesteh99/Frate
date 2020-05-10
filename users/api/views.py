@@ -27,7 +27,7 @@ class FrateUsersView(CreateAPIView):
 
     	from rest_framework.response import Response
 
-    	return Response({Status: 1})
+    	return Response(data = {'Status': 1})
 
 
    
