@@ -32,7 +32,7 @@ class FrateUsersView(CreateAPIView):
     def get(self, request):
         fusers = []
         for u in User.objects.all():
-            var a = {}
+            a = {}
             a['Username'] = u.Username
             a['Password'] = u.Password
             a['Email'] = u.email
