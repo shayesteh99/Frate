@@ -6,7 +6,7 @@ from users.api.serializers import FUserSerializer
 from users.models import FrateUser
 
 class FrateUsersView(CreateAPIView):
-    queryset = User.objects.all()
+    queryset = FrateUser.objects.all()
     serializer_class = FUserSerializer
     permission_classes = [AllowAny]
 
@@ -30,15 +30,15 @@ class FrateUsersView(CreateAPIView):
     	return Response(data = {'Status': 1})
 
     def get(self, request):
-        fusers = []
-        for u in User.objects.all():
-            a = {}
-            a['Username'] = u.Username
-            a['Password'] = u.Password
-            a['Email'] = u.email
-            fusers.append(a)
+        # fusers = []
+        # for u in User.objects.all():
+        #     a = {}
+        #     a['Username'] = u.Username
+        #     a['Password'] = u.Password
+        #     a['Email'] = u.email
+        #     fusers.append(a)
 
-        # fusers = [u for u in User.objects.all()]
+        fusers = [u for u in FrateUser.objects.all()]
         from rest_framework.response import Response
         return Response(fusers)
 
