@@ -30,6 +30,7 @@ class FrateUsersView(CreateAPIView):
     	return Response(data = {'Status': 1})
 
     def get(self, request):
+        from rest_framework.response import Response
         return Response()
 
    
