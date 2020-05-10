@@ -29,17 +29,17 @@ class FrateUsersView(ListCreateAPIView):
 
     	return Response(data = {'Status': 1})
 
-    def get(self, request):
-        # fusers = []
-        # for u in User.objects.all():
-        #     a = {}
-        #     a['Username'] = u.Username
-        #     a['Password'] = u.Password
-        #     a['Email'] = u.email
-        #     fusers.append(a)
-        serializer = FUserSerializer(FrateUser.objects.get())
-        # fusers = [u for u in ]
-        from rest_framework.response import Response
-        return Response(serializer.data)
+    # def get(self, request):
+    #     # fusers = []
+    #     # for u in User.objects.all():
+    #     #     a = {}
+    #     #     a['Username'] = u.Username
+    #     #     a['Password'] = u.Password
+    #     #     a['Email'] = u.email
+    #     #     fusers.append(a)
+    #     serializer = FUserSerializer(FrateUser.objects.get())
+    #     # fusers = [u for u in ]
+    #     from rest_framework.response import Response
+    #     return Response(serializer.data)
 
    
