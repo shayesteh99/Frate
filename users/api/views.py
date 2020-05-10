@@ -5,7 +5,7 @@ from rest_framework.permissions import AllowAny
 from users.api.serializers import FUserSerializer
 from users.models import FrateUser
 
-class FrateUsersView(CreateAPIView):
+class FrateUsersView(ListAPIView):
     queryset = FrateUser.objects.all()
     serializer_class = FUserSerializer
     permission_classes = [AllowAny]
@@ -37,7 +37,7 @@ class FrateUsersView(CreateAPIView):
         #     a['Password'] = u.Password
         #     a['Email'] = u.email
         #     fusers.append(a)
-        serializer = FUserSerializer(FrateUser.objects.get())
+        serializer = FUserSerializer(FrateUser.objects.get(1))
         # fusers = [u for u in ]
         from rest_framework.response import Response
         return Response(serializer.data)
