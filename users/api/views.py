@@ -34,6 +34,8 @@ class FratePostsView(ListCreateAPIView):
     permission_classes = [AllowAny]
 
     def create(self, request):
+        print(request.data)
+
         username = request.data['Username']
         filename = request.data['Filename']
         category = request.data['Category']
