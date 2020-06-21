@@ -11,6 +11,6 @@ class FratePost(models.Model):
 	Username = models.CharField(max_length = 50)
 	Date = models.CharField(max_length = 20)
 	Filename = models.CharField(max_length = 50)
-	Category = models.CharField(max_length = 20)
+	Category = models.IntegerField()
 	Ratings = models.CharField(max_length = 20)
 	Caption = models.CharField(max_length = 100, blank = True)
