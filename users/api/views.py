@@ -40,6 +40,7 @@ class FratePostsView(ListCreateAPIView, UpdateAPIView):
         filename = request.data['Filename']
         category = request.data['Category']
         ratings = request.data['Ratings']
+        ratec = request.data['RateCount']
         caption = request.data['Caption']
         dateobj = datetime.now()
         date = dateobj.strftime("%b %d, %Y")
@@ -50,6 +51,7 @@ class FratePostsView(ListCreateAPIView, UpdateAPIView):
             filename = filename,
             category = category,
             ratings = ratings,
+            rateCount = ratec,
             caption = caption
             )
         m.save()

@@ -9,7 +9,7 @@ class FUserSerializer(serializers.ModelSerializer):
 class FPostSerializer(serializers.ModelSerializer):
     class Meta:
         model = FratePost
-        fields = ['id', 'username', 'date', 'filename', 'category', 'ratings', 'caption']
+        fields = ['id', 'username', 'date', 'filename', 'category', 'ratings', 'rateCount', 'caption']
 
 class FFollowerSerializer(serializers.ModelSerializer):
     class Meta:
