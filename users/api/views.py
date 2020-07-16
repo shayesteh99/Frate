@@ -56,4 +56,8 @@ class FratePostsView(ListCreateAPIView):
 
         return Response(data = {'Status': 1})
 
+    def update(self, request):
+        print(request.data)
+        
+
    
