@@ -2,8 +2,8 @@ from django.contrib.auth.models import User
 from rest_framework.generics import ListCreateAPIView, UpdateAPIView
 from rest_framework.permissions import AllowAny
 
-from users.api.serializers import FUserSerializer, FPostSerializer, FFollowerSerializer
-from users.models import FrateUser, FratePost, FrateFollower
+from users.api.serializers import FUserSerializer, FPostSerializer, FFollowerSerializer, FCommentSerializer
+from users.models import FrateUser, FratePost, FrateFollower, FrateComment
 
 from rest_framework.response import Response
 
@@ -65,7 +65,7 @@ class FrateFollowersView(ListCreateAPIView):
         follower = request.data['Follower']
         following = request.data['Following']
 
-        m = FrateUser.objects.create(
+        m = FrateFollower.objects.create(
             follower = follower,
             following = following
             )
@@ -73,6 +73,25 @@ class FrateFollowersView(ListCreateAPIView):
 
         return Response(data = {'Status': 1})
 
+
+class FrateCommentsView(ListCreateAPIView):
+    queryset = FrateComment.objects.all()
+    serializer_class = FCommentSerializer
+    permission_classes = [AllowAny]
+
+    def create(self, request):
+        username = request.data['Username']
+        comment = request.data['Comment']
+        postid = request.data['PostID']
+
+        m = FrateComment.objects.create(
+            username = username,
+            comment = comment,
+            postID = postid
+            )
+        m.save()
+
+        return Response(data = {'Status': 1})
 
 
    
