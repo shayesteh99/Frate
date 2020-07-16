@@ -2,8 +2,8 @@ from django.contrib.auth.models import User
 from rest_framework.generics import ListCreateAPIView, UpdateAPIView
 from rest_framework.permissions import AllowAny
 
-from users.api.serializers import FUserSerializer, FPostSerializer
-from users.models import FrateUser, FratePost
+from users.api.serializers import FUserSerializer, FPostSerializer, FFollowerSerializer
+from users.models import FrateUser, FratePost, FrateFollower
 
 from rest_framework.response import Response
 
@@ -20,9 +20,9 @@ class FrateUsersView(ListCreateAPIView):
     	password = request.data['Password']
 
     	m = FrateUser.objects.create(
-    		Email = email,
-    		Username = username,
-    		Password = password
+    		email = email,
+    		username = username,
+    		password = password
     		)
     	m.save()
 
@@ -45,19 +45,34 @@ class FratePostsView(ListCreateAPIView, UpdateAPIView):
         date = dateobj.strftime("%b %d, %Y")
 
         m = FratePost.objects.create(
-            Username = username,
-            Date = date,
-            Filename = filename,
-            Category = category,
-            Ratings = ratings,
-            Caption = caption
+            username = username,
+            date = date,
+            filename = filename,
+            category = category,
+            ratings = ratings,
+            caption = caption
             )
         m.save()
 
         return Response(data = {'Status': 1})
 
-    def update(self, request):
-        print(request.data)
+class FrateFollowersView(ListCreateAPIView):
+    queryset = FrateFollower.objects.all()
+    serializer_class = FFollowerSerializer
+    permission_classes = [AllowAny]
+
+    def create(self, request):
+        follower = request.data['Follower']
+        following = request.data['Following']
+
+        m = FrateUser.objects.create(
+            follower = follower,
+            following = following
+            )
+        m.save()
+
+        return Response(data = {'Status': 1})
+
 
 
    
