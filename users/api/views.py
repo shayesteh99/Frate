@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from rest_framework.generics import ListCreateAPIView
+from rest_framework.generics import ListCreateAPIView, UpdateAPIView
 from rest_framework.permissions import AllowAny
 
 from users.api.serializers import FUserSerializer, FPostSerializer
@@ -28,7 +28,7 @@ class FrateUsersView(ListCreateAPIView):
 
     	return Response(data = {'Status': 1})
 
-class FratePostsView(ListCreateAPIView):
+class FratePostsView(ListCreateAPIView, UpdateAPIView):
     queryset = FratePost.objects.all()
     serializer_class = FPostSerializer
     permission_classes = [AllowAny]
@@ -58,6 +58,6 @@ class FratePostsView(ListCreateAPIView):
 
     def update(self, request):
         print(request.data)
-        
+
 
    
