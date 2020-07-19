@@ -80,6 +80,11 @@ class FrateFollowersView(ListCreateAPIView):
 
         return Response(data = {'Status': 1})
 
+class FrateFollowersDeleteView(DestroyAPIView):
+    queryset = FrateFollower.objects.all()
+    serializer_class = FFollowerSerializer
+    permission_classes = [AllowAny]
+
 
 class FrateCommentsView(ListCreateAPIView):
     queryset = FrateComment.objects.all()
@@ -99,6 +104,7 @@ class FrateCommentsView(ListCreateAPIView):
         m.save()
 
         return Response(data = {'Status': 1})
+
 
 
    
