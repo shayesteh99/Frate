@@ -13,7 +13,7 @@ class FratePost(models.Model):
 	filename = models.CharField(max_length = 500)
 	category = models.IntegerField()
 	ratings = models.CharField(max_length = 20)
-	rateCount = models.CharField(max_length = 50, blank = True)
+	rateCount = models.IntegerField()
 	caption = models.CharField(max_length = 100, blank = True)
 
 class FrateFollower(models.Model):
