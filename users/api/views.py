@@ -51,7 +51,7 @@ class FratePostsView(ListCreateAPIView, UpdateAPIView):
             filename = filename,
             category = category,
             ratings = ratings,
-            rateCount = ratec,
+            count = ratec,
             caption = caption
             )
         m.save()
