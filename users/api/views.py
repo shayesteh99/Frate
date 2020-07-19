@@ -33,6 +33,9 @@ class FratePostsView(ListCreateAPIView, UpdateAPIView, DestroyAPIView):
     serializer_class = FPostSerializer
     permission_classes = [AllowAny]
 
+    def delete(self, request):
+        print(len(FratePost.objects))
+
     def create(self, request):
         print(request.data)
 
