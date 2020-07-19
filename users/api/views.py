@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from rest_framework.generics import ListCreateAPIView, UpdateAPIView
+from rest_framework.generics import ListCreateAPIView, UpdateAPIView, DestroyAPIView
 from rest_framework.permissions import AllowAny
 
 from users.api.serializers import FUserSerializer, FPostSerializer, FFollowerSerializer, FCommentSerializer
