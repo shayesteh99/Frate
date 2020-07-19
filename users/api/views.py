@@ -28,7 +28,7 @@ class FrateUsersView(ListCreateAPIView):
 
     	return Response(data = {'Status': 1})
 
-class FratePostsView(ListCreateAPIView, UpdateAPIView):
+class FratePostsView(ListCreateAPIView, UpdateAPIView, DestroyAPIView):
     queryset = FratePost.objects.all()
     serializer_class = FPostSerializer
     permission_classes = [AllowAny]
