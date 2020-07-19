@@ -33,30 +33,30 @@ class FratePostsView(ListCreateAPIView, UpdateAPIView):
     serializer_class = FPostSerializer
     permission_classes = [AllowAny]
 
-    # def create(self, request):
-    #     print(request.data)
+    def create(self, request):
+        print(request.data)
 
-    #     username = request.data['Username']
-    #     filename = request.data['Filename']
-    #     category = request.data['Category']
-    #     ratings = request.data['Ratings']
-    #     ratec = request.data['RateCount']
-    #     caption = request.data['Caption']
-    #     dateobj = datetime.now()
-    #     date = dateobj.strftime("%b %d, %Y")
+        username = request.data['Username']
+        filename = request.data['Filename']
+        category = request.data['Category']
+        ratings = request.data['Ratings']
+        ratec = request.data['RateCount']
+        caption = request.data['Caption']
+        dateobj = datetime.now()
+        date = dateobj.strftime("%b %d, %Y")
 
-    #     m = FratePost.objects.create(
-    #         username = username,
-    #         date = date,
-    #         filename = filename,
-    #         category = category,
-    #         ratings = ratings,
-    #         rateCount = ratec,
-    #         caption = caption
-    #         )
-    #     m.save()
+        m = FratePost.objects.create(
+            username = username,
+            date = date,
+            filename = filename,
+            category = category,
+            ratings = ratings,
+            rateCount = ratec,
+            caption = caption
+            )
+        m.save()
 
-    #     return Response(data = {'Status': 1})
+        return Response(data = {'Status': 1})
 
 class FrateFollowersView(ListCreateAPIView):
     queryset = FrateFollower.objects.all()
