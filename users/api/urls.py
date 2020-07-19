@@ -6,7 +6,7 @@ from users.api.views import FrateUsersView, FratePostsView, FrateFollowersView, 
 urlpatterns = [
     path('login/', FrateUsersView.as_view(), name="users"),
     path('posts/', FratePostsView.as_view(), name="posts"),
-    path(r'^posts/(?P<pk>\d+)/$', FratePostsUpdateView.as_view(), name="update posts"),
+    path(r'posts/(?P<pk>\d+)/$', FratePostsUpdateView.as_view(), name="update posts"),
     path('followers/', FrateFollowersView.as_view(), name="followers"),
     path('comments/', FrateCommentsView.as_view(), name="comments"),
 ]
