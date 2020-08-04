@@ -19,4 +19,4 @@ class FFollowerSerializer(serializers.ModelSerializer):
 class FCommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        fields = ['id', 'username', 'comment', 'postID']
+        fields = ['id', 'username', 'comment', 'post']

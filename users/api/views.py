@@ -94,12 +94,12 @@ class FrateCommentsView(ListCreateAPIView):
     def create(self, request):
         username = request.data['Username']
         comment = request.data['Comment']
-        postid = request.data['PostID']
+        post = request.data['Post']
 
         m = FrateComment.objects.create(
             username = username,
             comment = comment,
-            postID = postid
+            post = post
             )
         m.save()
 
