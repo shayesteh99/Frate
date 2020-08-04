@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from users.models import FrateUser, FratePost, FrateComment, Follower
+from users.models import FrateUser, FratePost, Comment, Follower
 
 class FUserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -18,5 +18,5 @@ class FFollowerSerializer(serializers.ModelSerializer):
 
 class FCommentSerializer(serializers.ModelSerializer):
     class Meta:
-        model = FrateComment
+        model = Comment
         fields = ['id', 'username', 'comment', 'postID']

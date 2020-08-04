@@ -3,7 +3,7 @@ from rest_framework.generics import ListCreateAPIView, UpdateAPIView, DestroyAPI
 from rest_framework.permissions import AllowAny
 
 from users.api.serializers import FUserSerializer, FPostSerializer, FFollowerSerializer, FCommentSerializer
-from users.models import FrateUser, FratePost, FrateFollower, FrateComment
+from users.models import FrateUser, FratePost, Follower, Comment
 
 from rest_framework.response import Response
 
@@ -64,7 +64,7 @@ class FratePostsView(ListCreateAPIView, DestroyAPIView):
         return Response(data = {'Status': 1})
 
 class FrateFollowersView(ListCreateAPIView):
-    queryset = FrateFollower.objects.all()
+    queryset = Follower.objects.all()
     serializer_class = FFollowerSerializer
     permission_classes = [AllowAny]
 
@@ -81,13 +81,13 @@ class FrateFollowersView(ListCreateAPIView):
         return Response(data = {'Status': 1})
 
 class FrateFollowersDeleteView(DestroyAPIView):
-    queryset = FrateFollower.objects.all()
+    queryset = Follower.objects.all()
     serializer_class = FFollowerSerializer
     permission_classes = [AllowAny]
 
 
 class FrateCommentsView(ListCreateAPIView):
-    queryset = FrateComment.objects.all()
+    queryset = Comment.objects.all()
     serializer_class = FCommentSerializer
     permission_classes = [AllowAny]
 

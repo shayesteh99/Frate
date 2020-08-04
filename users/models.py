@@ -8,7 +8,7 @@ class FrateUser(models.Model):
 	password = models.CharField(max_length = 20)
 
 class FratePost(models.Model):
-	username = models.CharField(max_length = 50)
+	username = models.ForeignKey(FrateUser, on_delete = models.CASCADE, related_name = 'posts')
 	date = models.CharField(max_length = 20)
 	filename = models.CharField(max_length = 500)
 	category = models.IntegerField()
@@ -20,16 +20,16 @@ class Follower(models.Model):
 	follower = models.ForeignKey(FrateUser, on_delete = models.CASCADE, related_name = 'followings')
 	following = models.ForeignKey(FrateUser, on_delete = models.CASCADE, related_name = 'followers')
 
-# class Comment(models.Model):
+class Comment(models.Model):
+	username = models.ForeignKey(FrateUser, on_delete = models.CASCADE, related_name = 'comments')
+	comment = models.CharField(max_length = 100)
+	post = models.ForeignKey(FratePost, on_delete = models.CASCADE, related_name = 'comments')
+
+# class FrateFollower(models.Model):
+# 	follower = models.CharField(max_length = 50)
+# 	following = models.CharField(max_length = 50)
+
+# class FrateComment(models.Model):
 # 	username = models.CharField(max_length = 50)
 # 	comment = models.CharField(max_length = 100)
 # 	postID = models.IntegerField()
-
-class FrateFollower(models.Model):
-	follower = models.CharField(max_length = 50)
-	following = models.CharField(max_length = 50)
-
-class FrateComment(models.Model):
-	username = models.CharField(max_length = 50)
-	comment = models.CharField(max_length = 100)
-	postID = models.IntegerField()
