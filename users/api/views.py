@@ -14,19 +14,19 @@ class FrateUsersView(ListCreateAPIView):
     serializer_class = FUserSerializer
     permission_classes = [AllowAny]
 
-    def create(self, request):
-    	email = request.data['Email']
-    	username = request.data['Username']
-    	password = request.data['Password']
+    # def create(self, request):
+    # 	email = request.data['Email']
+    # 	username = request.data['Username']
+    # 	password = request.data['Password']
 
-    	m = FrateUser.objects.create(
-    		email = email,
-    		username = username,
-    		password = password
-    		)
-    	m.save()
+    # 	m = FrateUser.objects.create(
+    # 		email = email,
+    # 		username = username,
+    # 		password = password
+    # 		)
+    # 	m.save()
 
-    	return Response(data = {'Status': 1})
+    # 	return Response(data = {'Status': 1})
 
 class FratePostsUpdateView(UpdateAPIView):
     queryset = FratePost.objects.all()
