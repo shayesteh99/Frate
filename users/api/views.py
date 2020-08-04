@@ -71,10 +71,12 @@ class FrateFollowersView(ListCreateAPIView):
     def create(self, request):
         follower = request.data['Follower']
         following = request.data['Following']
+        f1 = FrateUser.objects.get(id=follower)
+        f2 = FrateUser.objects.get(id=following)
 
         m = Follower.objects.create(
-            follower = follower,
-            following = following
+            follower = f1,
+            following = f2
             )
         m.save()
 
