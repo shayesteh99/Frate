@@ -42,6 +42,8 @@ class FratePostsView(ListCreateAPIView, DestroyAPIView):
         print(request.data)
 
         username = request.data['Username']
+        u = FrateUser.objects.get(id=username)
+
         filename = request.data['Filename']
         category = request.data['Category']
         ratings = request.data['Ratings']
@@ -51,7 +53,7 @@ class FratePostsView(ListCreateAPIView, DestroyAPIView):
         date = dateobj.strftime("%b %d, %Y")
 
         m = FratePost.objects.create(
-            username = username,
+            username = u,
             date = date,
             filename = filename,
             category = category,
@@ -95,13 +97,17 @@ class FrateCommentsView(ListCreateAPIView):
 
     def create(self, request):
         username = request.data['Username']
+        u = FrateUser.objects.get(id=username)
+
         comment = request.data['Comment']
         post = request.data['Post']
+        p = FratePost.objects.get(id=post)
+
 
         m = Comment.objects.create(
-            username = username,
+            username = u,
             comment = comment,
-            post = post
+            post = p
             )
         m.save()
 
