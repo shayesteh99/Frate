@@ -6,7 +6,7 @@ class FrateUser(models.Model):
 	email = models.EmailField()
 	username = models.CharField(max_length = 50)
 	password = models.CharField(max_length = 20)
-	profilePic = models.CharField(max_length = 500)
+	profilePic = models.CharField(max_length = 500, , blank = True)
 
 class FratePost(models.Model):
 	username = models.ForeignKey(FrateUser, on_delete = models.CASCADE, related_name = 'posts')
