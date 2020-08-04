@@ -72,7 +72,7 @@ class FrateFollowersView(ListCreateAPIView):
         follower = request.data['Follower']
         following = request.data['Following']
 
-        m = FrateFollower.objects.create(
+        m = Follower.objects.create(
             follower = follower,
             following = following
             )
@@ -96,7 +96,7 @@ class FrateCommentsView(ListCreateAPIView):
         comment = request.data['Comment']
         post = request.data['Post']
 
-        m = FrateComment.objects.create(
+        m = Comment.objects.create(
             username = username,
             comment = comment,
             post = post
